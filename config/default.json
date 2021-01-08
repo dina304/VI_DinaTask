@@ -1,0 +1,13 @@
+{
+  "redis": {
+      "host": "redis-server",
+      "port": "6379"
+    },
+  "api": {
+    "url":"https://api.themoviedb.org/3/movie/{}/credits" ,
+    "key": "a3122653626663f8489c0ad1fcce7b39"
+  },
+  "app": {
+    "port": 3000
+  }
+}
