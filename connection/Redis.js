@@ -3,9 +3,7 @@ const config = require('config');
 const client = redisUtil.createClient(config.get('redis.port'), config.get('redis.host'));
 client.on('connect', function () {
     console.log('Redis client connected');
-});
-
-client.on('error', function (err) {
+}).on('error', function (err) {
     console.log('Something went wrong ' + err);
 });
 
