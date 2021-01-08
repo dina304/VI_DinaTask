@@ -30,23 +30,26 @@ function populateActor2RoleMap(actorsRoleMap, actor) {
 }
 
 async function saveActoreMapToRedis(actorsMap) {
-    for (const [key, value] in actorsMap.entries()) {
+    console.log("1")
+    for (const [key, value] of actorsMap.entries()) {
         await redisClient.setKey(key, JSON.stringify(value));
     }
 }
 
 async function saveRolesMapToRedis(rolesMap) {
-    for (const [key, value] in rolesMap.entries()) {
+    console.log("1")
+    for (const [key, value] of rolesMap.entries()) {
         let rolesActorList = [];
         if (value.length > 1) {
             rolesActorList.push(new Map(key, JSON.stringify(Array.from(value))))
         }
-        await redisClient.setKey(rolesKey, rolesActorList);
+        await redisClient.setKey(rolesKey, JSON.stringify(rolesActorList));
     }
 }
 
 async function saveActor2RoleMapToRedis(actorsRoleMap) {
-    for (const [key, value] in actorsRoleMap.entries()) {
+    console.log("1")
+    for (const [key, value] of actorsRoleMap.entries()) {
         await redisClient.setKey(key, JSON.stringify(Array.from(value)));
     }
 }
